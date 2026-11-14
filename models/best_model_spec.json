@@ -1,0 +1,88 @@
+{
+    "in_channels": 3,
+    "image_size": 64,
+    "num_classes": 10,
+    "layers": [
+        {
+            "type": "conv_block",
+            "in_channels": 3,
+            "out_channels": 32,
+            "kernel_size": 3,
+            "padding": 1,
+            "norm": "batch",
+            "activation": "relu",
+            "bias": false
+        },
+        {
+            "type": "conv_block",
+            "in_channels": 32,
+            "out_channels": 32,
+            "kernel_size": 3,
+            "padding": 1,
+            "groups": 32,
+            "norm": "batch",
+            "activation": "relu",
+            "bias": false
+        },
+        {
+            "type": "conv_block",
+            "in_channels": 32,
+            "out_channels": 64,
+            "kernel_size": 1,
+            "norm": "batch",
+            "activation": "relu",
+            "bias": false,
+            "pool": "max"
+        },
+        {
+            "type": "conv_block",
+            "in_channels": 64,
+            "out_channels": 64,
+            "kernel_size": 3,
+            "padding": 1,
+            "groups": 64,
+            "norm": "batch",
+            "activation": "relu",
+            "bias": false
+        },
+        {
+            "type": "conv_block",
+            "in_channels": 64,
+            "out_channels": 80,
+            "kernel_size": 1,
+            "norm": "batch",
+            "activation": "relu",
+            "bias": false,
+            "pool": "max"
+        },
+        {
+            "type": "conv_block",
+            "in_channels": 80,
+            "out_channels": 80,
+            "kernel_size": 3,
+            "padding": 1,
+            "groups": 80,
+            "norm": "batch",
+            "activation": "relu",
+            "bias": false
+        },
+        {
+            "type": "conv_block",
+            "in_channels": 80,
+            "out_channels": 96,
+            "kernel_size": 1,
+            "norm": "batch",
+            "activation": "relu",
+            "bias": false,
+            "pool": "max"
+        },
+        {
+            "type": "global_pool"
+        },
+        {
+            "type": "classifier",
+            "num_classes": 10,
+            "in_features": 96
+        }
+    ]
+}
